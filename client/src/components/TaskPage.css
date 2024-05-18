@@ -1,0 +1,26 @@
+.task-page-container {
+  max-height: 200vh;
+    height:110vh;
+    width: 100vw;
+    background-image: url(https://codemyui.com/wp-content/uploads/2019/06/Shooting-Star-Background-in-Pure-CSS-1.gif);
+    
+    background-size: cover;
+  }
+.task-page-title{
+  text-align: center;
+  height: 5vh;
+  font-size: 4vh;
+  color: white;
+  }
+
+.add-task-container{
+ width: 35vw;
+ height: 60vh;
+ display: grid;
+ align-items: center;
+ justify-content: center;
+}
+.task-list-container{
+  
+  
+}

@@ -1,0 +1,40 @@
+/* Navigation.css */
+nav {
+    background-color: #333;
+    padding: 10px;
+    height: 3vh;
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    background-color: rgba(17, 25, 40, 0.75);
+   
+    border: 1px solid rgba(17, 17, 17, 0.125);
+  }
+  
+  ul {
+    position: absolute;
+    right: 0px;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 30vw;
+    height: 4vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    column-gap: 20px;
+  }
+  
+  li {
+    display: inline;
+    
+  }
+  
+  .a {
+    color:  #f09;
+    text-decoration: none;
+  }
+  
+  .a:hover {
+    color: #0ff;
+    text-decoration: none;
+  }
+  
