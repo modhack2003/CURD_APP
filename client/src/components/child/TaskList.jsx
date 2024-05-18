@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import './TaskList.css';
 import { MdDeleteForever, MdEdit, MdClose } from "react-icons/md";
 import { IoMdSave } from "react-icons/io";
 
-const TaskList = () => {
+const TaskList = ({ handleLoading }) => {
   const [tasks, setTasks] = useState([]);
   const [editedTask, setEditedTask] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const fetchTasks = () => {
+    handleLoading(true); // Set loading to true when fetching tasks
     fetch('http://localhost:4000/api/tasks')
       .then(response => response.json())
       .then(data => {
@@ -17,8 +19,12 @@ const TaskList = () => {
           return { ...task, formattedCreatedAt };
         });
         setTasks(formattedTasks);
+        handleLoading(false); // Set loading to false after fetching tasks
       })
-      .catch(error => console.error('Error fetching tasks:', error));
+      .catch(error => {
+        console.error('Error fetching tasks:', error);
+        handleLoading(false); // Set loading to false if there's an error
+      });
   };
 
   const deleteTask = (taskId) => {
@@ -65,7 +71,7 @@ const TaskList = () => {
 
   useEffect(() => {
     fetchTasks();
-    const intervalId = setInterval(fetchTasks, 100000);
+    const intervalId = setInterval(fetchTasks, 1000);
     return () => clearInterval(intervalId);
   }, []);
 
@@ -134,6 +140,10 @@ const TaskList = () => {
       )}
     </div>
   );
+};
+
+TaskList.propTypes = {
+  handleLoading: PropTypes.func.isRequired,
 };
 
 export default TaskList;

@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import './AddTask.css';
 
-const AddTask = () => {
+const AddTask = ({ handleLoading }) => {
   const [title, setTitle] = useState('');
   const [reps, setReps] = useState('');
   const [load, setLoad] = useState('');
@@ -9,7 +10,8 @@ const AddTask = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    fetch('/api/tasks', {
+    handleLoading(true); // Set loading to true when submitting data
+    fetch('http://localhost:4000/api/tasks', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -23,8 +25,12 @@ const AddTask = () => {
         setReps('');
         setLoad('');
         setUserId('');
+        handleLoading(false); // Set loading to false after successful submission
       })
-      .catch(error => console.error('Error adding task:', error));
+      .catch(error => {
+        console.error('Error adding task:', error);
+        handleLoading(false); // Set loading to false if there's an error
+      });
   };
 
   return (
@@ -59,10 +65,14 @@ const AddTask = () => {
           placeholder="User ID"
           required
         />
-        <button type="submit"className='task-btn'>Add Task</button>
+        <button type="submit" className='task-btn'>Add Task</button>
       </form>
     </div>
   );
+};
+
+AddTask.propTypes = {
+  handleLoading: PropTypes.func.isRequired,
 };
 
 export default AddTask;

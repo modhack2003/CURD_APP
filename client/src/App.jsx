@@ -1,5 +1,6 @@
+// App.js
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
 import LoadingBar from 'react-top-loading-bar';
 import Home from './components/Home';
 import Login from './components/Login';
@@ -9,29 +10,31 @@ import Nav from './components/Nav';
 
 function App() {
   const [progress, setProgress] = useState(0);
-  const [showLoadingBar, setShowLoadingBar] = useState(false);
+  const location = useLocation();
 
-  // Listen to route changes and update loading progress
   useEffect(() => {
-    const timeout = setTimeout(() => {
-      setShowLoadingBar(false);
-      console.log("hello")
-    }, 1500); // You can adjust the duration of the loading bar
+    
+    setProgress(30);
 
-    return () => clearTimeout(timeout);
-  }, []); // useEffect runs only once, no dependencies needed
+    
+    const timer = setTimeout(() => {
+      setProgress(100);
+    }, 500); 
+
+    
+    return () => clearTimeout(timer);
+  }, [location]);
 
   return (
-    <Router> {/* Wrap your entire component tree with Router */}
+    <>
       <LoadingBar
         progress={progress}
-        height={3}
+        height={4}
         color="yellow"
         onLoaderFinished={() => setProgress(0)}
-        loaderSpeed={1000}
-        show={showLoadingBar}
+        
       />
-      <Nav/>
+      <Nav />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/Task" element={<Taskpage />} />
@@ -39,8 +42,14 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
       </Routes>
-    </Router>
+    </>
   );
 }
 
-export default App;
+export default function MainApp() {
+  return (
+    <Router>
+      <App />
+    </Router>
+  );
+}
