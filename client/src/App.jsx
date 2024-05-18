@@ -46,10 +46,5 @@ function App() {
   );
 }
 
-export default function MainApp() {
-  return (
-    <Router>
-      <App />
-    </Router>
-  );
-}
+
+export default App;
