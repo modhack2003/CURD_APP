@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import './TaskList.css';
 import { MdDeleteForever, MdEdit, MdClose } from "react-icons/md";
 import { IoMdSave } from "react-icons/io";
+import { FaSyncAlt } from "react-icons/fa";
 
 const TaskList = ({ handleLoading }) => {
   const [tasks, setTasks] = useState([]);
@@ -10,36 +11,40 @@ const TaskList = ({ handleLoading }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const fetchTasks = () => {
-    handleLoading(true); // Set loading to true when fetching tasks
+    handleLoading(true); 
     fetch('http://localhost:4000/api/tasks')
       .then(response => response.json())
       .then(data => {
-        const formattedTasks = data.map(task => {
-          const formattedCreatedAt = new Date(task.createdAt).toLocaleString();
-          return { ...task, formattedCreatedAt };
-        });
+        const formattedTasks = data.map(task => ({
+          ...task,
+          formattedCreatedAt: new Date(task.createdAt).toLocaleString()
+        }));
         setTasks(formattedTasks);
-        handleLoading(false); // Set loading to false after fetching tasks
+        handleLoading(false); 
       })
       .catch(error => {
         console.error('Error fetching tasks:', error);
-        handleLoading(false); // Set loading to false if there's an error
+        handleLoading(false); 
       });
   };
 
   const deleteTask = (taskId) => {
-    console.log(`Attempting to delete task with ID: ${taskId}`);
+    const originalTasks = [...tasks];
+    setTasks(prevTasks => prevTasks.filter(task => task._id !== taskId));
+
     fetch(`http://localhost:4000/api/tasks/${taskId}`, {
       method: 'DELETE',
     })
       .then(response => {
-        if (response.ok) {
-          setTasks(prevTasks => prevTasks.filter(task => task._id !== taskId));
-        } else {
+        if (!response.ok) {
+          setTasks(originalTasks);
           console.error('Error deleting task:', response.statusText);
         }
       })
-      .catch(error => console.error('Error deleting task:', error));
+      .catch(error => {
+        setTasks(originalTasks);
+        console.error('Error deleting task:', error);
+      });
   };
 
   const editTask = (task) => {
@@ -71,12 +76,13 @@ const TaskList = ({ handleLoading }) => {
 
   useEffect(() => {
     fetchTasks();
-    const intervalId = setInterval(fetchTasks, 1000);
-    return () => clearInterval(intervalId);
   }, []);
 
   return (
     <div className="tasklist-container">
+      <button className="refresh-button" onClick={fetchTasks}>
+        <FaSyncAlt /> 
+      </button>
       {tasks.map(task => (
         <div className="task-card" key={task._id}>
           <h2 className="task-title">{task.title}</h2>

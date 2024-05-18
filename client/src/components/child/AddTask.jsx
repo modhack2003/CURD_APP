@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import PropTypes from 'prop-types';
 import './AddTask.css';
 
@@ -10,7 +10,7 @@ const AddTask = ({ handleLoading }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    handleLoading(true); // Set loading to true when submitting data
+    handleLoading(true);
     fetch('http://localhost:4000/api/tasks', {
       method: 'POST',
       headers: {
@@ -25,11 +25,11 @@ const AddTask = ({ handleLoading }) => {
         setReps('');
         setLoad('');
         setUserId('');
-        handleLoading(false); // Set loading to false after successful submission
+        handleLoading(false);
       })
       .catch(error => {
         console.error('Error adding task:', error);
-        handleLoading(false); // Set loading to false if there's an error
+        handleLoading(false);
       });
   };
 

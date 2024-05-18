@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState, useEffect } from 'react';
 import LoadingBar from 'react-top-loading-bar';
 import TaskList from './child/TaskList';
 import AddTask from './child/AddTask';
@@ -6,19 +6,31 @@ import './TaskPage.css';
 
 const TaskPage = () => {
   const [loading, setLoading] = useState(false);
+  const [progress, setProgress] = useState(0);
 
-  // Function to handle loading state
   const handleLoading = (isLoading) => {
     setLoading(isLoading);
+    if (isLoading) {
+      setProgress(30); // Start the loading bar
+    } else {
+      setProgress(100); // Complete the loading bar
+    }
   };
+
+  useEffect(() => {
+    if (!loading && progress === 100) {
+      const timeout = setTimeout(() => setProgress(0), 500); // Reset the loading bar
+      return () => clearTimeout(timeout);
+    }
+  }, [loading, progress]);
 
   return (
     <div className="task-page-container">
       <LoadingBar
-        progress={loading ? 40 : 0}
+        progress={progress}
         height={3}
-        color="yellow"
-        onLoaderFinished={() => setLoading(false)}
+        color="#f09"
+        onLoaderFinished={() => setProgress(0)}
       />
       <h1 className="task-page-title">Task Manager</h1>
       <div className="task-content">
