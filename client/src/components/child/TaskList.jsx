@@ -24,6 +24,7 @@ const TaskList = ({ handleLoading }) => {
       })
       .catch(error => {
         console.error('Error fetching tasks:', error);
+        
         handleLoading(false); 
       });
   };
