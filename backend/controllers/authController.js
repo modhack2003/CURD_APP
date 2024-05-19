@@ -1,40 +1,53 @@
-const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
 const User = require('../models/User');
-const passport = require('passport')
+const bcrypt = require('bcrypt');
 
-const register = async (req, res) => {
-  const { name, email, password } = req.body;
+exports.login = async (req, res) => {
+  const { email, password } = req.body;
+
+  if (!email || !password) {
+    return res.status(400).json({ message: 'Email and password are required' });
+  }
 
   try {
-    if (!name || !email || !password) {
-      return res.status(400).json({ message: 'Name, email, and password are required' });
+    const user = await User.findOne({ email });
+    if (!user) {
+      return res.status(401).json({ message: 'Invalid email or password' });
     }
 
-    const existingUser = await User.findOne({ email });
-    if (existingUser) {
-      return res.status(400).json({ message: 'Email already in use' });
+    const isMatch = await bcrypt.compare(password, user.password);
+    if (!isMatch) {
+      return res.status(401).json({ message: 'Invalid email or password' });
     }
 
-    const newUser = new User({ name, email, password });
-    await newUser.save();
-    res.status(201).json({ message: 'User registered successfully' });
+   
+    req.session.userId = user._id;
+    return res.redirect('https://www.google.com');
   } catch (err) {
-    res.status(500).json({ message: 'Error registering user', error: err.message });
+    console.error('Error during login:', err);
+    return res.status(500).json({ message: 'Server error' });
   }
 };
 
-const login = (req, res, next) => {
-  passport.authenticate('local', (err, user, info) => {
-    if (err) return next(err);
-    if (!user) return res.status(401).json({ message: 'Invalid credentials' });
+exports.register = async (req, res) => {
+  const { name, email, password } = req.body;
 
-    const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
-    res.json({ token });
-  })(req, res, next);
-};
+  if (!name || !email || !password) {
+    return res.status(400).json({ message: 'Name, email, and password are required' });
+  }
 
-module.exports = {
-  register,
-  login,
+  try {
+    const existingUser = await User.findOne({ email });
+    if (existingUser) {
+      return res.status(400).json({ message: 'User already exists' });
+    }
+
+    const hashedPassword = await bcrypt.hash(password, 10);
+    const user = new User({ name, email, password: hashedPassword });
+    await user.save();
+
+    return res.redirect('/login'); // Redirect to login page on successful registration
+  } catch (err) {
+    console.error('Error during registration:', err);
+    return res.status(500).json({ message: 'Server error' });
+  }
 };
