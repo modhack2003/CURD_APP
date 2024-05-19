@@ -21,7 +21,7 @@ exports.login = async (req, res) => {
 
    
     req.session.userId = user._id;
-    return res.redirect('https://www.google.com');
+    return res.redirect('http://localhost:5173/task');
   } catch (err) {
     console.error('Error during login:', err);
     return res.status(500).json({ message: 'Server error' });
@@ -45,7 +45,7 @@ exports.register = async (req, res) => {
     const user = new User({ name, email, password: hashedPassword });
     await user.save();
 
-    return res.redirect('/login'); // Redirect to login page on successful registration
+    return res.redirect('/login'); 
   } catch (err) {
     console.error('Error during registration:', err);
     return res.status(500).json({ message: 'Server error' });

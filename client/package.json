@@ -9,8 +9,8 @@
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "start": "concurrently \"npm run server\" \"npm run client\"",
-    "server": "cd backend && nodemon server.js",
-    "client": "cd frontend && npm run dev"
+    "server": "cd.. && cd backend && nodemon server.js",
+    "client": "cd.. && cd client && npm run dev"
   },
   "dependencies": {
     "@fontsource/plus-jakarta-sans": "^5.0.20",
