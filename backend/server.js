@@ -9,7 +9,7 @@ const loginRouter = require('./routes/api/login');
 const registerRouter = require('./routes/api/register');
 
 const app = express();
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 3000;
 
 app.use(cors());
 app.use(express.json());
@@ -36,7 +36,9 @@ mongoose.connect(process.env.MONGO_URI, {
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
-
+app.get('/', (req, res) => {
+  res.render('home', { imagePath: '/assets/R.jpeg' });
+});
 app.get('/login', (req, res) => {
   res.render('login');
 });
@@ -46,6 +48,8 @@ app.get('/register', (req, res) => {
 });
 
 
+app.use('/assets', express.static(path.join(__dirname, 'assets')));
+app.use('/path/to', express.static(path.join(__dirname, 'path/to')))
 app.use('/api/tasks', TasksRouters);
 app.use('/api/users/login', loginRouter);
 app.use('/api/users/register', registerRouter);
@@ -62,5 +66,9 @@ app.use((err, req, res, next) => {
 });
 
 app.listen(PORT, () => {
+  console.log(`\n  BIKRAM Server  ready \n`)
   console.log(`Server is running on port ${PORT}`);
+  console.log(`  ➜  Local:   http://localhost:${PORT}/`)
+  console.log('  ➜  Network: use --host to expose')
+
 });
