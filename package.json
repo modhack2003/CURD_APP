@@ -4,7 +4,10 @@
   "description": "Curd Manager is a modern web application built using the MERN (MongoDB, Express.js, React.js, Node.js) stack. It is designed to efficiently manage CRUD (Create, Read, Update, Delete) operations for various entities, providing a seamless solution for streamlining your workflow.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "concurrently \"npm run server\" \"npm run client\"",
+    "server": " cd backend && nodemon server.js",
+    "client": "cd client && npm run dev"
   },
   "author": "",
   "license": "ISC"

@@ -8,6 +8,9 @@ const TasksRouters = require('./routes/TasksRouters');
 const loginRouter = require('./routes/api/login');
 const registerRouter = require('./routes/api/register');
 
+
+
+
 const app = express();
 const PORT = process.env.PORT || 3000;
 
@@ -37,7 +40,8 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
 app.get('/', (req, res) => {
-  res.render('home', { imagePath: '/assets/R.jpeg' });
+  // Send the HTML file as the response
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 app.get('/login', (req, res) => {
   res.render('login');
@@ -48,6 +52,7 @@ app.get('/register', (req, res) => {
 });
 
 
+app.use(express.static(path.join(__dirname, 'public')));
 app.use('/assets', express.static(path.join(__dirname, 'assets')));
 app.use('/path/to', express.static(path.join(__dirname, 'path/to')))
 app.use('/api/tasks', TasksRouters);
