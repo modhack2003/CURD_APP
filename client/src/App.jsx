@@ -1,6 +1,6 @@
 // App.js
-import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
+import  { useState, useEffect } from 'react';
+import { Route, Routes, useLocation } from 'react-router-dom';
 import LoadingBar from 'react-top-loading-bar';
 import Home from './components/Home';
 import Login from './components/Login';

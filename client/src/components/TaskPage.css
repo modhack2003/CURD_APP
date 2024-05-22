@@ -1,26 +1,36 @@
 .task-page-container {
   max-height: 200vh;
-    height:110vh;
+    height:200vh;
     width: 100vw;
-    background-image: url(https://codemyui.com/wp-content/uploads/2019/06/Shooting-Star-Background-in-Pure-CSS-1.gif);
+    background-color: rgba(0, 0, 0, 0.842);
     
-    background-size: cover;
+  }
+  .task-page-container.light {
+    background-color: white; /* Light background */
+  }
+  .task-content{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;   
+ 
   }
 .task-page-title{
   text-align: center;
   height: 5vh;
   font-size: 4vh;
-  color: white;
+  color:red
   }
+  .theme-toggle-button{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
 
-.add-task-container{
- width: 35vw;
- height: 60vh;
- display: grid;
- align-items: center;
- justify-content: center;
-}
-.task-list-container{
-  
-  
-}
+  }

@@ -1,12 +1,25 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import LoadingBar from 'react-top-loading-bar';
 import TaskList from './child/TaskList';
 import AddTask from './child/AddTask';
-import './TaskPage.css';
+import './TaskPage.css'
 
 const TaskPage = () => {
   const [loading, setLoading] = useState(false);
   const [progress, setProgress] = useState(0);
+  const [darkTheme, setDarkTheme] = useState(true); // State for managing theme
+
+  useEffect(() => {
+    // Load the appropriate CSS file based on the darkTheme state
+    const themeCssLink = document.getElementById('theme-css');
+    if (themeCssLink) {
+      if (darkTheme) {
+        themeCssLink.href = 'path-to-your-dark-theme.css'; // Replace 'path-to-your-dark-theme.css' with the actual path to your dark theme CSS file
+      } else {
+        themeCssLink.href = 'path-to-your-light-theme.css'; // Replace 'path-to-your-light-theme.css' with the actual path to your light theme CSS file
+      }
+    }
+  }, [darkTheme]);
 
   const handleLoading = (isLoading) => {
     setLoading(isLoading);
@@ -24,8 +37,13 @@ const TaskPage = () => {
     }
   }, [loading, progress]);
 
+  // Function to toggle theme
+  const toggleTheme = () => {
+    setDarkTheme(!darkTheme);
+  };
+
   return (
-    <div className="task-page-container">
+    <div className={darkTheme ? 'task-page-container dark' : 'task-page-container light'}>
       <LoadingBar
         progress={progress}
         height={3}
@@ -34,9 +52,16 @@ const TaskPage = () => {
       />
       <h1 className="task-page-title">Task Manager</h1>
       <div className="task-content">
-        <AddTask handleLoading={handleLoading} />
-        <TaskList handleLoading={handleLoading} />
+        {/* Pass theme and toggle function as props */}
+        <AddTask handleLoading={handleLoading} darkTheme={darkTheme} />
+        <TaskList handleLoading={handleLoading} darkTheme={darkTheme} />
       </div>
+      {/* Button to toggle theme */}
+      <button className="theme-toggle-button" onClick={toggleTheme}>
+        {darkTheme ? '🌞' : '🌙'} {/* Sun and moon icons for light and dark mode */}
+      </button>
+      {/* Dynamic loading of CSS files */}
+      <link id="theme-css" rel="stylesheet" href="path-to-your-dark-theme.css" /> {/* Replace 'path-to-your-dark-theme.css' with the actual path to your dark theme CSS file */}
     </div>
   );
 };

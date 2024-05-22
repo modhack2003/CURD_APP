@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import './AddTask.css';
+import './AddTaskDark.css';
+// import './AddTaskLIght.css'
 
-const AddTask = ({ handleLoading }) => {
+const AddTask = ({ handleLoading, darkTheme }) => {
   const [title, setTitle] = useState('');
   const [reps, setReps] = useState('');
   const [load, setLoad] = useState('');
@@ -33,9 +34,11 @@ const AddTask = ({ handleLoading }) => {
       });
   };
 
+  const formClass = darkTheme ? 'add-task-form dark' : 'add-task-form light';
+
   return (
     <div className="add-task-container-child">
-      <form className="add-task-form" onSubmit={handleSubmit}>
+      <form className={formClass} onSubmit={handleSubmit}>
         <h1>Add Task</h1>
         <input
           type="text"
@@ -73,6 +76,7 @@ const AddTask = ({ handleLoading }) => {
 
 AddTask.propTypes = {
   handleLoading: PropTypes.func.isRequired,
+  darkTheme: PropTypes.bool.isRequired,
 };
 
 export default AddTask;

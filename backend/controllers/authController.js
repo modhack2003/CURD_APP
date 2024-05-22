@@ -21,7 +21,7 @@ exports.login = async (req, res) => {
 
    
     req.session.userId = user._id;
-    return res.redirect('http://localhost:5173/task');
+    return res.redirect('http://localhost:4000/task');
   } catch (err) {
     console.error('Error during login:', err);
     return res.status(500).json({ message: 'Server error' });
