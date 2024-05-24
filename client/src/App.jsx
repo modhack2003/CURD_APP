@@ -8,7 +8,7 @@ import Signup from './components/Signup';
 import Taskpage from './components/TaskPage';
 import Nav from './components/Nav';
 
-function App() {
+function App( darkTheme) {
   const [progress, setProgress] = useState(0);
   const location = useLocation();
 
@@ -36,8 +36,8 @@ function App() {
       />
       <Nav />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/Task" element={<Taskpage />} />
+        <Route path="/" element={<Home darkTheme={darkTheme} />} />
+        <Route path="/Task" element={<Taskpage darkTheme={darkTheme} />} />
         <Route path="/Home" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />

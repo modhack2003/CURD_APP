@@ -1,15 +1,18 @@
-/* Navigation.css */
-nav {
+
+  div.navbar.dark{
+    height: 5vh;
+    background-color: #222222; 
     padding: 10px;
-    height: 3vh;
-    
-    backdrop-filter: blur(16px) saturate(180%);
-    -webkit-backdrop-filter: blur(16px) saturate(180%);
-    background-color: rgba(16, 14, 16, 0.41);
-    box-shadow: 10px 20px 10px rgba(22, 22, 22, 0.532);
-    border: 1px solid rgba(17, 17, 17, 0.125);
+    box-shadow: 4px 4px 8px rgba(139, 139, 139, 0.532);
+ 
   }
+  div.navbar.light{
+    height: 5vh;
+    background-color: #f7f7f7; 
+    padding: 10px;
+    box-shadow: 4px 4px 8px rgba(139, 139, 139, 0.532);
   
+}
   ul {
     position: absolute;
     right: 0px;

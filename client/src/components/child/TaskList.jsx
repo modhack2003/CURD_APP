@@ -144,7 +144,7 @@ const TaskList = ({ handleLoading, darkTheme }) => {
           </div>
         )}
       </div>
-      <div className="refresh">
+      <div className="refresh" style={{order:"2" , height:"10vh"}}>
         <button className={darkTheme?"refresh-button dark" :"refresh-button light" } onClick={fetchTasks}>
           <FaSyncAlt />
         </button>

@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import './AddTaskDark.css';
+import './AddTask.css';
 // import './AddTaskLIght.css'
+import { BsDatabaseFillAdd } from "react-icons/bs";
+
 
 const AddTask = ({ handleLoading, darkTheme }) => {
   const [title, setTitle] = useState('');
@@ -68,7 +70,7 @@ const AddTask = ({ handleLoading, darkTheme }) => {
           placeholder="User ID"
           required
         />
-        <button type="submit" className='task-btn'>Add Task</button>
+        <button type="submit" className={darkTheme? "task-btn dark":"task-btn light"}><BsDatabaseFillAdd className='task-icon' /></button>
       </form>
     </div>
   );

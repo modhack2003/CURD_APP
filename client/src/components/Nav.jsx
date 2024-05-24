@@ -1,11 +1,11 @@
-// Navigation.js
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { RxHamburgerMenu } from "react-icons/rx";
 import { IoCloseSharp } from "react-icons/io5";
+import PropTypes from "prop-types";
 import './Nav.css'
 
-const Nav = () => {
+
+const Nav = (darkTheme) => {
   const showSidebar = ()=> {
     const sidebar = document.querySelector('.sidebar');
     
@@ -18,9 +18,12 @@ const Nav = () => {
     sidebar.style.display = 'none'
 
   }
-
+  console.log(darkTheme)
+  const themeMode = darkTheme ? 'navbar dark' : ' navbar light'
+  console.log("nav"+themeMode)
   return (
-    <nav>
+    <>
+      <div className={themeMode}>
       <ul className='sidebar'>
       <li onClick={hideSidebar} className='close'><IoCloseSharp  className='close-icon'/>
       </li>
@@ -53,8 +56,11 @@ const Nav = () => {
         </li>
         <li className='menu' onClick={showSidebar}><RxHamburgerMenu  className='menu-icon'/></li>
       </ul>
-    </nav>
+      </div>
+    </>
   );
 };
-
+Nav.propTypes = {
+  darkTheme: PropTypes.bool.isRequired,
+};
 export default Nav;
