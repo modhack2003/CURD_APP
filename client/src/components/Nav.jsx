@@ -18,9 +18,10 @@ const Nav = (darkTheme) => {
     sidebar.style.display = 'none'
 
   }
+  
+  const themeMode = darkTheme ? 'navbar light' : 'navbar dark'
+  console.log(darkTheme ? 'navbar light' : 'navbar dark')
   console.log(darkTheme)
-  const themeMode = darkTheme ? 'navbar dark' : ' navbar light'
-  console.log("nav"+themeMode)
   return (
     <>
       <div className={themeMode}>
@@ -34,10 +35,10 @@ const Nav = (darkTheme) => {
           <Link to="/task"  className='a'>Task</Link>
         </li>
         <li>
-          <Link to="/login"  className='a'>Login</Link>
+          <Link to="http://localhost:4000/login"  className='a'>Login</Link>
         </li>
         <li>
-          <Link to="/signup"  className='a'>Signup</Link>
+          <Link to="http://localhost:4000/register"  className='a'>Signup</Link>
         </li>
         
       </ul>
@@ -49,10 +50,10 @@ const Nav = (darkTheme) => {
           <Link to="/task"  className='a'>Task</Link>
         </li>
         <li className='hideOnMobile'>
-          <Link to="/login"  className='a'>Login</Link>
+          <Link to="http://localhost:4000/login"  className='a'>Login</Link>
         </li>
         <li className='hideOnMobile'>
-          <Link to="/signup"  className='a'>Signup</Link>
+          <Link to="http://localhost:4000/register"  className='a'>Signup</Link>
         </li>
         <li className='menu' onClick={showSidebar}><RxHamburgerMenu  className='menu-icon'/></li>
       </ul>

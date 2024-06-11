@@ -15,6 +15,7 @@ const Home = () => {
       </div>
 
       <div className="button-container">
+        <Link to="/task" className="button pulse">Task</Link>
         <Link to="http://localhost:4000/register" className="button pulse" >Create a new account</Link>
         <span className="login-link">Already have an account? <Link to='http://localhost:4000/login' className='login-home-link'>Login</Link></span>
       </div>

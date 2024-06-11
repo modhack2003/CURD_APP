@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import './AddTask.css';
-// import './AddTaskLIght.css'
 import { BsDatabaseFillAdd } from "react-icons/bs";
 
 

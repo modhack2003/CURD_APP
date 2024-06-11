@@ -5,6 +5,7 @@ import AddTask from './child/AddTask';
 import './TaskPage.css'
 import { MdDarkMode } from "react-icons/md";
 import { MdLightMode } from "react-icons/md";
+import Nav from './Nav';
 
 const TaskPage = () => {
   const [loading, setLoading] = useState(false);
@@ -42,7 +43,7 @@ const TaskPage = () => {
         color="#f09"
         onLoaderFinished={() => setProgress(0)}
       />
-      <h1 className={darkTheme?"task-page-title dark ":"task-page-title light"}>Task Manager</h1>
+      <Nav darkTheme={darkTheme}/>      
       <div className="task-content">
         
         <AddTask handleLoading={handleLoading} darkTheme={darkTheme} />

@@ -19,7 +19,7 @@
 
 .refresh-button.light  {
   z-index: 1;   
-  right: 1vw;
+  margin-top: 5vh;
   background-color: transparent;
   color: #f09;
   border: none;
@@ -35,7 +35,7 @@
 }
 
 .refresh-button.light:hover {
-  background-color: rgba(255, 0, 153, 0.24); /* Slightly darker gray background on hover */
+  background-color: rgba(255, 0, 153, 0.24); 
 }
 
 .refresh-button.light .FaSyncAlt {
@@ -253,7 +253,7 @@
 
 .refresh-button.dark {
   z-index: 1;   
-  right: 1vw;
+  margin-top: 5vh;
   background-color: transparent;
   color: white;
   border: none;

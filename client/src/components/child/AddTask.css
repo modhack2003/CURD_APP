@@ -6,6 +6,11 @@
     align-items: center;
     order: 3;
   }
+  .add-task-container-child input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    
+  }
   .add-task-form.dark{
     display: flex;
     flex-direction: column;
