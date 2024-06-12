@@ -1,4 +1,4 @@
-// App.js
+
 import  { useState, useEffect } from 'react';
 import { Route, Routes, useLocation } from 'react-router-dom';
 import LoadingBar from 'react-top-loading-bar';
@@ -6,7 +6,7 @@ import Home from './components/Home';
 import Login from './components/Login';
 import Signup from './components/Signup';
 import Taskpage from './components/TaskPage';
-import Nav from './components/Nav';
+
 
 function App( ) {
   const [progress, setProgress] = useState(0);
@@ -27,6 +27,7 @@ function App( ) {
 
   return (
     <>
+    
       <LoadingBar
         progress={progress}
         height={4}

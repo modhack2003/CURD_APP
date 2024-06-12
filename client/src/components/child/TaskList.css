@@ -1,5 +1,4 @@
-
-.tasklist-container{
+.tasklist-container {
   left: 0px;
   display: flex;
   flex-wrap: wrap;
@@ -17,8 +16,8 @@
   border: none;
 }
 
-.refresh-button.light  {
-  z-index: 1;   
+.refresh-button.light {
+  z-index: 1;
   margin-top: 5vh;
   background-color: transparent;
   color: #f09;
@@ -28,29 +27,24 @@
   border-radius: 50px;
   display: flex;
   align-items: center;
-  box-shadow: 
-    6px 6px 12px #cbced1, 
-    -6px -6px 12px #ffffff; 
-  border:none;
+  box-shadow: 6px 6px 12px #cbced1, -6px -6px 12px #ffffff;
+  border: none;
 }
 
 .refresh-button.light:hover {
-  background-color: rgba(255, 0, 153, 0.24); 
+  background-color: rgba(255, 0, 153, 0.24);
 }
 
 .refresh-button.light .FaSyncAlt {
   margin-right: 8px;
 }
 
-
-.task-card.light{
+.task-card.light {
   position: relative;
-  background-color: #f0f0f0; /* White background */
-  border-radius: 10px; /* Rounded corners */
-  box-shadow: 4px 4px 10px rgb(90, 90, 90),
-              -4px -4px 10px rgb(255, 255, 255) ;
-            
-  color: #333; /* Dark gray text */
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  box-shadow: 4px 4px 10px rgb(90, 90, 90), -4px -4px 10px rgb(255, 255, 255);
+  color: #333;
   padding: 20px;
   margin: 30px;
   height: max-content;
@@ -59,37 +53,33 @@
   transition: all 0.2s ease;
 }
 
-
-
 .task-card.light:hover {
   transform: translateY(-5px);
-  box-shadow: 4px 4px 8px rgba(247, 247, 247, 0.705),
-              inset -6px -6px 10px rgba(36, 36, 36, 0.534),
-              
+  box-shadow: 4px 4px 8px rgba(247, 247, 247, 0.705), inset -6px -6px 10px rgba(36, 36, 36, 0.534);
 }
 
 .task-title.light {
   font-size: 1rem;
   margin-bottom: 10px;
-  color: #000; 
+  color: #000;
 }
 
 .task-details.light {
-  font-size: 14px; 
+  font-size: 14px;
   color: #666;
 }
 
-.task-details.light  p {
+.task-details.light p {
   margin: 5px 0;
-  font-size: 0.9rem; 
+  font-size: 0.9rem;
 }
 
-.task-details.light  p strong {
-  color: #000; 
-  font-weight: bold; 
+.task-details.light p strong {
+  color: #000;
+  font-weight: bold;
 }
 
-.button-container.light  {
+.button-container.light {
   position: absolute;
   top: 10px;
   right: 10px;
@@ -97,51 +87,44 @@
   gap: 10px;
 }
 
-
 .delete-button.light {
-  background-color: #fff; 
+  background-color: #fff;
   border: none;
   border-radius: 50%;
-  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); 
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
   padding: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   transition: all 0.2s ease;
-  color: #ff0000; 
+  color: #ff0000;
   font-size: 16px;
   outline: none;
 }
-
-
 
 .delete-button.light:hover {
-  background-color: #ffcccc; 
+  background-color: #ffcccc;
 }
 
-
 .edit-button.light {
-  background-color: #fff; /* White background */
+  background-color: #fff;
   border: none;
   border-radius: 50%;
-  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); /* Soft shadow */
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
   padding: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   transition: all 0.2s ease;
-  color: #007bff; /* Blue color */
+  color: #007bff;
   font-size: 16px;
   outline: none;
 }
 
-
-
-
 .edit-button.light:hover {
-  background-color: #cce5ff; /* Light blue background on hover */
+  background-color: #cce5ff;
 }
 
 .modal.light {
@@ -150,89 +133,78 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(255, 255, 255, 0.75); /* Lighter background for modal */
+  background-color: rgba(255, 255, 255, 0.75);
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 9999; /* Ensure the modal appears on top */
+  z-index: 9999;
 }
 
 .modal-content.light {
   width: max-content;
   height: max-content;
-  background-color: #fff; /* White background */
+  background-color: #fff;
   padding: 20px;
-  border-radius: 10px; /* Rounded corners */
-  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); /* Soft shadow */
-  color: #333; /* Dark gray text */
-  position: relative; /* Ensure the close button is positioned relative to the modal content */
+  border-radius: 10px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  color: #333;
+  position: relative;
 }
+
 .edit.light {
   padding: 10px;
-  color: #ff0000; /* Red color */
+  color: #ff0000;
   text-transform: capitalize;
 }
 
-.edit-form.light  {
+.edit-form.light {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
-.edit-form.light  input {
+.edit-form.light input {
   border-radius: 4px;
   width: calc(100% - 70px);
   padding: 20px;
   margin-bottom: 10px;
   border: none;
   box-sizing: border-box;
-  color: #333; /* Dark gray text */
+  color: #333;
   font-size: 16px;
   line-height: 1;
   outline: none;
-  background-color: #f0f0f0; /* Light gray background */
-  box-shadow: 
-      6px 6px 12px #cbced1, 
-      -6px -6px 12px #ffffff;
+  background-color: #f0f0f0;
+  box-shadow: 6px 6px 12px #cbced1, -6px -6px 12px #ffffff;
   transition: all 0.2s ease;
 }
 
-.edit-form.light  input:hover {
-  background-color: #ffffff; /* White background */
-  box-shadow: 
-      6px 6px 12px #cbced1, 
-      -6px -6px 12px #ffffff,
-      2px 2px 4px rgba(0, 0, 0, 0.1),
-      -2px -2px 4px rgba(255, 255, 255, 0.1);
+.edit-form.light input:hover {
+  background-color: #ffffff;
+  box-shadow: 6px 6px 12px #cbced1, -6px -6px 12px #ffffff, 2px 2px 4px rgba(0, 0, 0, 0.1), -2px -2px 4px rgba(255, 255, 255, 0.1);
 }
 
-.edit-form.light  button {
+.edit-form.light button {
   padding: 8px 16px;
-  background-color: #f0f0f0; /* Light gray background */
-  color: #ff0000; /* Red color */
+  background-color: #f0f0f0;
+  color: #ff0000;
   border: none;
   border-radius: 20px;
   cursor: pointer;
-  box-shadow: 
-      6px 6px 12px #cbced1, 
-      -6px -6px 12px #ffffff;
+  box-shadow: 6px 6px 12px #cbced1, -6px -6px 12px #ffffff;
   transition: all 0.2s ease;
 }
 
-.edit-form.light  button:hover {
-  background-color: #ffffff; /* White background */
-  color: #00ff00; /* Green color */
-  box-shadow: 
-      6px 6px 12px #cbced1, 
-      -6px -6px 12px #ffffff,
-      2px 2px 4px rgba(0, 0, 0, 0.1),
-      -2px -2px 4px rgba(255, 255, 255, 0.1);
+.edit-form.light button:hover {
+  background-color: #ffffff;
+  color: #00ff00;
+  box-shadow: 6px 6px 12px #cbced1, -6px -6px 12px #ffffff, 2px 2px 4px rgba(0, 0, 0, 0.1), -2px -2px 4px rgba(255, 255, 255, 0.1);
 }
 
-.close-button.light  {
-  background-color: transparent; /* Transparent background */
+.close-button.light {
+  background-color: transparent;
   border: none;
-  color: #000; /* Black text */
+  color: #000;
   position: absolute;
   top: 6px;
   right: 6px;
@@ -240,19 +212,18 @@
   transition: all 0.2s ease;
 }
 
-.close-button.light :hover {
-  color: #ff0000; /* Red color on hover */
+.close-button.light:hover {
+  color: #ff0000;
 }
-
 
 .refresh.dark {
   justify-content: center;
   order: 3;
-  height: max-content ;
+  height: max-content;
 }
 
 .refresh-button.dark {
-  z-index: 1;   
+  z-index: 1;
   margin-top: 5vh;
   background-color: transparent;
   color: white;
@@ -262,20 +233,12 @@
   border-radius: 50px;
   display: flex;
   align-items: center;
-  box-shadow: 
-    inset 4px 4px 6px #424242,
-    inset -4px -4px 6px #3a3a3a,
-      6px 6px 12px #030303,
-      -6px -6px 12px #222222;
-      transition: all 0.2s ease;
+  box-shadow: inset 4px 4px 6px #424242, inset -4px -4px 6px #3a3a3a, 6px 6px 12px #030303, -6px -6px 12px #222222;
+  transition: all 0.2s ease;
 }
 
-.refresh-button.dark:hover {   
-  box-shadow: 
-  4px 4px 6px #202020,
-  -4px -4px 6px #2b2b2b,
-  inset 6px 6px 12px rgb(0, 0, 0),
-  inset -6px -6px 12px rgba(49, 49, 49, 0.925);
+.refresh-button.dark:hover {
+  box-shadow: 4px 4px 6px #202020, -4px -4px 6px #2b2b2b, inset 6px 6px 12px rgb(0, 0, 0), inset -6px -6px 12px rgba(49, 49, 49, 0.925);
 }
 
 .refresh-button.dark .FaSyncAlt {
@@ -286,10 +249,7 @@
   position: relative;
   background-color: #1e1e1e;
   border-radius: 20px;
-  box-shadow: 
-      8px 8px 24px #000000,
-      -6px -6px 12px #4d4d4d;
-
+  box-shadow: 8px 8px 24px #000000, -6px -6px 12px #4d4d4d;
   color: #ffffff;
   padding: 20px;
   margin: 30px;
@@ -321,8 +281,7 @@
 }
 
 .task-details.dark p strong {
-  color: #fffdfd;
-  font-size: 0.8rem;
+  color: #ffffff;
 }
 
 .button-container.dark {
@@ -334,59 +293,45 @@
 }
 
 .delete-button.dark {
-  background-color: #1e1e1e;
+  background-color: transparent;
   border: none;
   border-radius: 50%;
-  box-shadow: 
-      4px 4px 6px #0e0e0e,
-      -4px -4px 6px #2a2a2a;
+  box-shadow: inset 4px 4px 6px #424242, inset -4px -4px 6px #3a3a3a, 6px 6px 12px #030303, -6px -6px 12px #222222;
   padding: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   transition: all 0.2s ease;
-  color: #ffffff;
+  color: #ff0000;
   font-size: 16px;
-  outline: none;
-  transition: all 0.2s ease;
 }
 
-.delete-button.dark:hover{
-  color: #f09;
-  box-shadow: 
-      4px 4px 6px #0e0e0e,
-      -4px -4px 6px #2a2a2a,
-      2px 2px 4px rgba(255, 255, 255, 0.2),
-      -2px -2px 4px rgba(0, 0, 0, 0.2);
+.delete-button.dark:hover {
+  background-color: #ff0000;
+  color: #fff;
+  box-shadow: inset 4px 4px 6px #424242, inset -4px -4px 6px #3a3a3a, 6px 6px 12px #030303, -6px -6px 12px #222222;
 }
 
 .edit-button.dark {
-  background-color: #1e1e1e;
+  background-color: transparent;
   border: none;
   border-radius: 50%;
-  box-shadow: 
-      4px 4px 6px #0e0e0e,
-      -4px -4px 6px #2a2a2a;
+  box-shadow: inset 4px 4px 6px #424242, inset -4px -4px 6px #3a3a3a, 6px 6px 12px #030303, -6px -6px 12px #222222;
   padding: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   transition: all 0.2s ease;
-  color: #ffffff;
+  color: #007bff;
   font-size: 16px;
-  outline: none;
-  transition: all 0.2s ease;
 }
 
-.edit-button.dark:hover{
-  box-shadow: 
-      4px 4px 6px #0e0e0e,
-      -4px -4px 6px #2a2a2a,
-      2px 2px 4px rgba(255, 255, 255, 0.2),
-      -2px -2px 4px rgba(0, 0, 0, 0.2);
-  color:#0ff;
+.edit-button.dark:hover {
+  background-color: #007bff;
+  color: #fff;
+  box-shadow: inset 4px 4px 6px #424242, inset -4px -4px 6px #3a3a3a, 6px 6px 12px #030303, -6px -6px 12px #222222;
 }
 
 .modal.dark {
@@ -395,32 +340,27 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(18, 18, 18, 0.75); /* Darker background for modal */
+  background-color: rgba(0, 0, 0, 0.75);
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 9999;;
+  z-index: 9999;
 }
 
 .modal-content.dark {
-  width: max-content;
-  height: max-content;
-  background-color: #1e1e1e; /* Match the task card background color */
+  width: 300px;
+  height: 200px;
+  background-color: #1e1e1e;
   padding: 20px;
-  border-radius: 20px;
-  box-shadow: 
-      6px 6px 12px #0e0e0e,
-      -6px -6px 12px #2a2a2a;
-  backdrop-filter: blur(16px) saturate(180%);
-  -webkit-backdrop-filter: blur(16px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.125);
+  border-radius: 10px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
   color: #ffffff;
   position: relative;
 }
 
 .edit.dark {
   padding: 10px;
-  color: #f09;
+  color: #00ff00;
   text-transform: capitalize;
 }
 
@@ -441,86 +381,67 @@
   font-size: 16px;
   line-height: 1;
   outline: none;
-  background-color: #1e1e1e; /* Match the modal background color */
-  box-shadow: 
-      inset 4px 4px 6px #0e0e0e,
-      inset -4px -4px 6px #2a2a2a
-      transition: all 0.2s ease;
-}
-.edit-form.dark input:hover {
   background-color: #1e1e1e;
-  box-shadow: 
-      inset 4px 4px 6px #0e0e0e,
-      inset -4px -4px 6px #2a2a2a,
-      2px 2px 4px rgba(255, 255, 255, 0.2),
-      -2px -2px 4px rgba(0, 0, 0, 0.2);
+  box-shadow: 4px 4px 6px #424242, -4px -4px 6px #3a3a3a;
+  transition: all 0.2s ease;
+}
+
+.edit-form.dark input:hover {
+  background-color: #333;
 }
 
 .edit-form.dark button {
   padding: 8px 16px;
-  background-color: #1e1e1e; /* Match the button color of other elements */
-  color: #f09;
+  background-color: #007bff;
+  color: #ffffff;
   border: none;
   border-radius: 20px;
   cursor: pointer;
-  box-shadow: 
-      4px 4px 6px #0e0e0e,
-      -4px -4px 6px #2a2a2a;
   transition: all 0.2s ease;
 }
 
 .edit-form.dark button:hover {
-  background-color: #1e1e1e;
-  color: #0ff;
-  box-shadow: 
-      4px 4px 6px #0e0e0e,
-      -4px -4px 6px #2a2a2a,
-      2px 2px 4px rgba(255, 255, 255, 0.2),
-      -2px -2px 4px rgba(0, 0, 0, 0.2);
+  background-color: #0056b3;
 }
 
 .close-button.dark {
-  background-color: #1e1e1e; /* Match the modal background color */
+  background-color: transparent;
   border: none;
+  color: #ffffff;
   position: absolute;
-  align-items: center;
-  color: #0ff;
-  top: 10px;
-  right: 10px;
-  height: 4vh;
-  width: 4vh;
-  border-radius: 50%;
-  padding: 10px;
-  box-shadow: 
-      4px 4px 6px #0e0e0e,
-      -4px -4px 6px #2a2a2a;
+  top: 6px;
+  right: 6px;
   cursor: pointer;
   transition: all 0.2s ease;
-  z-index: 1; 
-}
-
-.close-icon.dark {
-  font-size: 1.4rem;
 }
 
 .close-button.dark:hover {
-  color: #0ff;
-  box-shadow: 
-      4px 4px 6px #0e0e0e,
-      -4px -4px 6px #2a2a2a,
-      2px 2px 4px rgba(255, 255, 255, 0.2),
-      -2px -2px 4px rgba(0, 0, 0, 0.2);
+  color: #ff0000;
 }
 
-.form-group.dark {
-  display: flex;
-  align-items: start;
-  justify-content: space-between;
-}
+@media screen and (max-width: 768px) {
+  body{
+    overflow: hidden;
+  }
 
-label.dark {
-  font-size: 1rem;
-  text-transform: capitalize;
-  color: #ffffff;
-}
+  .tasklist-container {
+    width: 47vw;
+    padding: 10px;
+    
+  }
 
+  .task-card.light, .task-card.dark {
+    width: 100%;
+    margin: 10px 0;
+    
+  }
+
+  .refresh-button.light, .refresh-button.dark {
+    margin-top: 10px;
+    margin-left: 39vh;
+  }
+  *{
+    font-size: 1rem;
+    
+  }
+}

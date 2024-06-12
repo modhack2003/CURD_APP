@@ -30,7 +30,7 @@ const TaskPage = () => {
     }
   }, [loading, progress]);
 
-  // Function to toggle theme
+  
   const toggleTheme = () => {
     setDarkTheme(!darkTheme);
   };
