@@ -13,7 +13,7 @@ const AddTask = ({ handleLoading, darkTheme }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     handleLoading(true);
-    fetch('http://localhost:4000/api/tasks', {
+    fetch('https://curd-g5va.onrender.com/api/tasks', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

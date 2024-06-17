@@ -12,7 +12,7 @@ const TaskList = ({ handleLoading, darkTheme }) => {
 
   const fetchTasks = () => {
     handleLoading(true);
-    fetch('http://localhost:4000/api/tasks')
+    fetch('https://curd-g5va.onrender.com/api/tasks')
       .then(response => response.json())
       .then(data => {
         const formattedTasks = data.map(task => ({
@@ -32,7 +32,7 @@ const TaskList = ({ handleLoading, darkTheme }) => {
     const originalTasks = [...tasks];
     setTasks(prevTasks => prevTasks.filter(task => task._id !== taskId));
 
-    fetch(`http://localhost:4000/api/tasks/${taskId}`, {
+    fetch(`https://curd-g5va.onrender.com/api/tasks/${taskId}`, {
       method: 'DELETE',
     })
       .then(response => {
@@ -55,7 +55,7 @@ const TaskList = ({ handleLoading, darkTheme }) => {
   const handleEditSubmit = (event) => {
     event.preventDefault();
     if (editedTask) {
-      fetch(`http://localhost:4000/api/tasks/${editedTask._id}`, {
+      fetch(`https://curd-g5va.onrender.com/api/tasks/${editedTask._id}`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',

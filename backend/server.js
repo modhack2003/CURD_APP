@@ -40,7 +40,7 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
 app.get('/', (req, res) => {
-  // Send the HTML file as the response
+  
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 app.get('/login', (req, res) => {
