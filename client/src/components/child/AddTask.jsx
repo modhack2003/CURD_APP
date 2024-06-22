@@ -1,8 +1,6 @@
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import PropTypes from 'prop-types';
-import './AddTask.css';
 import { BsDatabaseFillAdd } from "react-icons/bs";
-
 
 const AddTask = ({ handleLoading, darkTheme }) => {
   const [title, setTitle] = useState('');
@@ -35,18 +33,22 @@ const AddTask = ({ handleLoading, darkTheme }) => {
       });
   };
 
-  const formClass = darkTheme ? 'add-task-form dark' : 'add-task-form light';
+  const formClass = darkTheme ? 'dark' : 'light';
 
   return (
-    <div className="add-task-container-child">
-      <form className={formClass} onSubmit={handleSubmit}>
-        <h1>Add Task</h1>
+    <div className="flex justify-center items-center w-full  md:w-2/5 md order-3">
+      <form
+        className={`flex flex-col items-center justify-between gap-0 rounded-lg w-full h-auto max-w-[400px] p-5 m-5 ${formClass === 'dark' ? 'bg-[#1e1e1e] text-white shadow-dark-neumorphism' : 'bg-[#f4f4f4] text-black shadow-light-neumorphism'}`}
+        onSubmit={handleSubmit}
+      >
+        <h1 className={`relative mb-5 text-base ${formClass === 'dark' ? 'text-white/80' : 'text-black/80'}`}>Task Form</h1>
         <input
           type="text"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
           placeholder="Task Title"
           required
+          className={`w-11/12 p-2.5 focus:w-11/12    text-base border-none outline-none rounded-lg mb-2 ${formClass === 'dark' ? 'bg-[#2a2a2a] text-white placeholder-[#dcdcdc]' : 'bg-[#e0e0e0] text-black placeholder-black'} ${formClass === 'dark' ? 'shadow-dark-input' : 'shadow-light-input'}`}
         />
         <input
           type="number"
@@ -54,6 +56,7 @@ const AddTask = ({ handleLoading, darkTheme }) => {
           onChange={(e) => setReps(Number(e.target.value))}
           placeholder="Reps"
           required
+          className={`w-11/12 p-2.5 focus:w-11/12    text-base border-none outline-none rounded-lg mb-2  ${formClass === 'dark' ? 'bg-[#2a2a2a] text-white placeholder-[#dcdcdc]' : 'bg-[#e0e0e0] text-black placeholder-black'} ${formClass === 'dark' ? 'shadow-dark-input' : 'shadow-light-input'}`}
         />
         <input
           type="number"
@@ -61,6 +64,7 @@ const AddTask = ({ handleLoading, darkTheme }) => {
           onChange={(e) => setLoad(Number(e.target.value))}
           placeholder="Load"
           required
+          className={`w-11/12 p-2.5 focus:w-11/12    text-base border-none outline-none rounded-lg mb-2 ${formClass === 'dark' ? 'bg-[#2a2a2a] text-white placeholder-[#dcdcdc]' : 'bg-[#e0e0e0] text-black placeholder-black'} ${formClass === 'dark' ? 'shadow-dark-input' : 'shadow-light-input'}`}
         />
         <input
           type="text"
@@ -68,8 +72,11 @@ const AddTask = ({ handleLoading, darkTheme }) => {
           onChange={(e) => setUserId(e.target.value)}
           placeholder="User ID"
           required
+          className={`w-11/12 p-2.5 focus:w-11/12    text-base border-none outline-none rounded-lg mb-2  ${formClass === 'dark' ? 'bg-[#2a2a2a] text-white placeholder-[#dcdcdc]' : 'bg-[#e0e0e0] text-black placeholder-black'} ${formClass === 'dark' ? 'shadow-dark-input' : 'shadow-light-input'}`}
         />
-        <button type="submit" className={darkTheme? "task-btn dark":"task-btn light"}><BsDatabaseFillAdd className='task-icon' /></button>
+        <button type="submit" className={`p-2.5 text-center text-base rounded-lg  ${formClass === 'dark' ? 'bg-[#1e1e1e] text-[#198754] hover:text-white hover:bg-green-900 shadow-dark-button' : 'bg-[#f4f4f4] text-[#198754] shadow-light-button hover:bg-green-100'}`}>
+          <BsDatabaseFillAdd className='task-icon' />
+        </button>
       </form>
     </div>
   );
