@@ -1,26 +1,95 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import './Home.css'
-import Image from '../assets/R.jpeg'
+import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { TypeAnimation } from "react-type-animation";
+import Navbar from "./Navbar";
+import PropTypes from "prop-types";
 
+const Home = ({ darkTheme, toggleTheme }) => {
+  const navigate = useNavigate();
+  const [animateText, setAnimateText] = useState(false);
+  const [fadeOut, setFadeOut] = useState(false);
+  const [showButton, setShowButton] = useState(false);
+  const [animateNavbar, setAnimateNavbar] = useState(false);
 
-const Home = () => {
+  useEffect(() => {
+    const typingDuration = 3000;
+    const timeout = setTimeout(() => {
+      setShowButton(true);
+      setAnimateNavbar(true); // Trigger navbar animation
+    }, typingDuration);
+
+    return () => clearTimeout(timeout);
+  }, []);
+
+  const handleClick = () => {
+    setAnimateText(true);
+    setFadeOut(true);
+    setAnimateNavbar(false); // Reset navbar animation when navigating away
+    setTimeout(() => {
+      navigate("/task");
+    }, 1000);
+  };
+
   return (
-    <div className="home-container" style={{backgroundImage: `url(${Image})`}}>
-      <div className="title-home">Welcome to Radio</div>
-
-      <div className="info-text">
-        <p>Get started by creating a new account. It's quick and easy!</p>
-        <p>If you already have an account, simply log in to get started.</p>
+    <>
+      <Navbar darkTheme={darkTheme} toggleTheme={toggleTheme} animateNavbar={animateNavbar} />
+      <div
+        className={`home-container ${
+          darkTheme ? "bg-[#1E1E1E] text-white" : "bg-white text-black"
+        } flex flex-col items-center justify-center h-screen overflow-hidden relative ${
+          fadeOut ? "fade-out" : ""
+        }`}
+      >
+        <div className="retro-grid"></div>
+        <div className="glass-card flex flex-col items-center justify-center p-8 rounded-lg backdrop-blur-lg bg-white/10 border border-white/20 shadow-lg">
+          <div
+            className={`title-home z-10 relative text-4xl md:text-8xl font-bold pb-32 md:mb-8 gradient-text ${
+              animateText ? "animate-text" : ""
+            }`}
+          >
+            WELCOME
+          </div>
+          <div className="absolute typing-text-container text-black text-xl md:text-2xl mb-2 md:mb-8">
+            <TypeAnimation
+              sequence={[
+                "Welcome to our CRUD application!",
+                1000,
+                "Here, you can create",
+                500,
+                "Here, you can read,",
+                500,
+                "Here, you can update",
+                500,
+                "Here, you can delete , tasks seamlessly.",
+                500,
+                "Enjoy a smooth and intuitive user experience",
+                1000,
+                "designed to boost your productivity.",
+                1000,
+              ]}
+              wrapper="p"
+              cursor={true}
+              repeat={5}
+              style={{ fontSize: "1.5rem", md: { fontSize: "2.5rem" }, display: "inline" }}
+            />
+          </div>
+          {showButton && (
+            <div className="button-container-home z-10 relative mt-2 md:mt-8 show">
+              <button className="home-page-button pb-2 font-Roboto" onClick={handleClick}>
+                Task
+              </button>
+            </div>
+          )}
+        </div>
       </div>
+    </>
+  );
+};
+Home.propTypes = {
+  darkTheme: PropTypes.bool.isRequired,
+  toggleTheme: PropTypes.func.isRequired,
+};
+export default Home;
 
-      <div className="button-container">
-        <Link to="/task" className="button pulse">Task</Link>
-        <Link to="https://curd-g5va.onrender.com/register" className="button pulse" >Create a new account</Link>
-        <span className="login-link">Already have an account? <Link to='https://curd-g5va.onrender.com/login' className='login-home-link'>Login</Link></span>
-      </div>
-    </div>
-  )
-}
 
-export default Home
+

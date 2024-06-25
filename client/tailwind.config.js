@@ -1,3 +1,5 @@
+
+
 const config = {
   purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
   darkMode: 'class', // or 'media' or 'class'
@@ -12,9 +14,24 @@ const config = {
         'dark-button': "10px 10px 21px #0c0c0c, -5px -5px 14px #303030;",
         'light-button': " 15px 15px 26px #9b9b9b ,-10px -10px 26px #ffffff"
       },
+      animation: {
+        'grid-3d': 'moveBackground 10s linear infinite',
+      },
+      keyframes: {
+        moveBackground: {
+          '0%': { transform: 'translateZ(500px) rotateX(65deg)' },
+          '100%': { transform: 'translateZ(-500px) rotateX(65deg)' },
+        },
+      },
+      FontFamily:{
+        Roboto:["Roboto Mono", "monospace"],
+      },
     },
   },
   plugins: [],
+  
+   
 };
 
 export default config;
+// tailwind.config.js

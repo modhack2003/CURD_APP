@@ -102,18 +102,18 @@ return (
           }`}
           key={task._id}
         >
-          <h2 className="text-base mb-2.5">{task.title}</h2>
+          <h2 className="text-base mb-2.5 text-2xl">{task.title}</h2>
           <div className="text-sm">
-            <p className="text-[0.8rem] mx-0 my-[5px]">
+            <p className="text-[1rem] mx-0 my-[5px]">
               <strong>Reps:</strong> {task.reps}
             </p>
-            <p className="text-[0.8rem] mx-0 my-[5px]">
+            <p className="text-[1rem] mx-0 my-[5px]">
               <strong>Load:</strong> {task.load}
             </p>
-            <p className="text-[0.8rem] mx-0 my-[5px]">
+            <p className="text-[1rem] mx-0 my-[5px]">
               <strong>User ID:</strong> {task.user_id}
             </p>
-            <p className="text-[0.5rem] mx-0 my-[5px]  ">
+            <p className="text-[1rem] mx-0 my-[5px]  ">
               <strong>Created:</strong> {task.formattedCreatedAt}
             </p>
           </div>
