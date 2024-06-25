@@ -49,7 +49,7 @@ const Home = ({ darkTheme, toggleTheme }) => {
           >
             WELCOME
           </div>
-          <div className={`absolute typing-text-container ${darkTheme ? "text-white":"text-black"} text-xl md:text-2xl mb-2 md:mb-8`}>
+          <div className={`typing-text-container ${darkTheme ? "text-white":"text-black"} text-xl md:text-2xl mb-2 md:mb-8`}>
             <TypeAnimation
               sequence={[
                 "Welcome to our CRUD application!",
@@ -69,8 +69,8 @@ const Home = ({ darkTheme, toggleTheme }) => {
               ]}
               wrapper="p"
               cursor={true}
-              repeat={5}
-              style={{ fontSize: "1.5rem", md: { fontSize: "2.5rem" }, display: "inline" }}
+              repeat={infinity}
+              style={{ fontSize: "1.5rem", md: { fontSize: "2.5rem" }, display: "block" }}
             />
           </div>
           {showButton && (
