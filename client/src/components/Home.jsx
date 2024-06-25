@@ -49,7 +49,7 @@ const Home = ({ darkTheme, toggleTheme }) => {
           >
             WELCOME
           </div>
-          <div className=`absolute typing-text-container ${darkTheme ? "text-white":"text-black"} text-xl md:text-2xl mb-2 md:mb-8`>
+          <div className=}`absolute typing-text-container ${darkTheme ? "text-white":"text-black"} text-xl md:text-2xl mb-2 md:mb-8`}>
             <TypeAnimation
               sequence={[
                 "Welcome to our CRUD application!",
