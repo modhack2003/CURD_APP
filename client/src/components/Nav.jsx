@@ -38,11 +38,11 @@ const Navbar = ({ darkTheme, toggleTheme }) => {
               About
             </Link>
           </div>
-          <button onClick={toggleTheme} className={`${darkTheme ? "text-white" : "text-white"} focus:outline-none`}>
+          <button onClick={toggleTheme} className={`${darkTheme ? "text-white" : "text-black"} focus:outline-none`}>
             {darkTheme ? <MdLightMode size="24" /> : <MdDarkMode size="24" />}
           </button>
           <div className="md:hidden">
-            <button onClick={() => setIsOpen(true)} className="text-black dark:text-white focus:outline-none">
+            <button onClick={() => setIsOpen(true)} className={`${darkTheme ? "text-white": "text-black"} focus:outline-none`}>
               <FiMenu className="h-6 w-6" />
             </button>
           </div>
