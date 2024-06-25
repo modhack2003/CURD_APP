@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { TypeAnimation } from "react-type-animation";
-import Navbar from "./Navbar";
+import Navbar from "./Nav";
 import PropTypes from "prop-types";
 
 const Home = ({ darkTheme, toggleTheme }) => {
