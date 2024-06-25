@@ -38,7 +38,7 @@ const Navbar = ({ darkTheme, toggleTheme }) => {
               About
             </Link>
           </div>
-          <button onClick={toggleTheme} className={`${darkTheme ? "text-white :"text-white"} focus:outline-none`}>
+          <button onClick={toggleTheme} className={`${darkTheme ? "text-white" : "text-white"} focus:outline-none`}>
             {darkTheme ? <MdLightMode size="24" /> : <MdDarkMode size="24" />}
           </button>
           <div className="md:hidden">
