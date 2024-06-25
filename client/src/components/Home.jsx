@@ -70,7 +70,7 @@ const Home = ({ darkTheme, toggleTheme }) => {
               wrapper="p"
               cursor={true}
               repeat={infinity}
-              style={{ fontSize: "1.5rem", md: { fontSize: "2.5rem" }, display: "block" }}
+              style={{ fontSize: "1.5rem", md: { fontSize: "2.5rem" }, display: "inline" , width : '90%'}}
             />
           </div>
           {showButton && (
