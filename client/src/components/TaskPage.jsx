@@ -27,7 +27,7 @@ const TaskPage = ({ darkTheme, toggleTheme }) => {
   }, [loading, progress]);
 
   return (
-    <div className={`${darkTheme ? 'bg-[#1E1E1E] text-white' : 'bg-white text-black'} mt-20 min-h-screen w-full md:min-h-[120vh] lg:min-h-[210vh] transition-colors duration-300`}>
+    <div className={`${darkTheme ? 'bg-[#1E1E1E] text-white' : 'bg-white text-black'} mt-0 pt-32 min-h-screen w-full md:min-h-[120vh] lg:min-h-[210vh] transition-colors duration-300`}>
       <LoadingBar
         progress={progress}
         height={3}

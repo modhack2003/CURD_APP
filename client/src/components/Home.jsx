@@ -40,16 +40,16 @@ const Home = ({ darkTheme, toggleTheme }) => {
           fadeOut ? "fade-out" : ""
         }`}
       >
-        <div className="retro-grid"></div>
+        <div className={`retro-grid ${darkTheme ? "darkgrid" : ""}`}></div>
         <div className="glass-card flex flex-col items-center justify-center p-8 rounded-lg backdrop-blur-lg bg-white/10 border border-white/20 shadow-lg">
           <div
-            className={`title-home z-10 relative text-4xl md:text-8xl font-bold pb-32 md:mb-8 gradient-text ${
+            className={`title-home z-10 relative text-6xl md:text-8xl font-bold pb-26 md:mb-4 gradient-text ${
               animateText ? "animate-text" : ""
             }`}
           >
             WELCOME
           </div>
-          <div className={`typing-text-container ${darkTheme ? "text-white":"text-black"} text-xl md:text-2xl mb-2 md:mb-8`}>
+          <div className={`typing-text-container ${darkTheme ? "text-white" : "text-black"} text-base sm:text-xl md:text-lg mb-2 md:mb-8`}>
             <TypeAnimation
               sequence={[
                 "Welcome to our CRUD application!",
@@ -60,7 +60,7 @@ const Home = ({ darkTheme, toggleTheme }) => {
                 500,
                 "Here, you can update",
                 500,
-                "Here, you can delete , tasks seamlessly.",
+                "Here, you can delete tasks seamlessly.",
                 500,
                 "Enjoy a smooth and intuitive user experience",
                 1000,
@@ -70,11 +70,11 @@ const Home = ({ darkTheme, toggleTheme }) => {
               wrapper="p"
               cursor={true}
               repeat={Infinity}
-              style={{ fontSize: "1.5rem", md: { fontSize: "2.5rem" }, display: "inline" , width : '90%'}}
+              style={{ display: "inline" }}
             />
           </div>
           {showButton && (
-            <div className="button-container-home z-10 relative mt-2 md:mt-8 show">
+            <div className="button-container-home z-10 relative mt-2 md:mt-4 show">
               <button className="home-page-button pb-2 font-Roboto" onClick={handleClick}>
                 Task
               </button>
@@ -85,11 +85,10 @@ const Home = ({ darkTheme, toggleTheme }) => {
     </>
   );
 };
+
 Home.propTypes = {
   darkTheme: PropTypes.bool.isRequired,
   toggleTheme: PropTypes.func.isRequired,
 };
+
 export default Home;
-
-
-

@@ -26,6 +26,15 @@
   }
 }
 
+@keyframes breathing {
+  0%, 100% {
+    background-size: 100% 100%;
+  }
+  50% {
+    background-size: 110% 110%;
+  }
+}
+
 .home-container {
   position: relative;
   height: 100vh;
@@ -52,7 +61,11 @@
   background-image: linear-gradient(to right, rgb(1, 1, 1) 0.001rem, transparent 1px), linear-gradient(to bottom, rgb(0, 0, 0) 0.001rem, transparent 1px);
   background-size: 50px 50px;
   transform: translateZ(-50px) rotateX(45deg);
-  animation: moveBackground 100s linear infinite;
+  animation: moveBackground 10s linear infinite;
+}
+
+.darkgrid {
+  background-image: linear-gradient(to right, rgb(255, 255, 255) 0.001rem, transparent 1px), linear-gradient(to bottom, rgb(255, 255, 255) 0.001rem, transparent 1px);
 }
 
 .gradient-text {
@@ -65,10 +78,25 @@
   display: flex;
   justify-content: center;
   align-items: center;
-
-  width: 100vw;
-  
+  flex-wrap: wrap;
+  width: 100%;
   margin: 0 auto;
+}
+
+.typing-text-container p {
+  font-size: 1rem;
+}
+
+@media (min-width: 640px) {
+  .typing-text-container p {
+    font-size: 1.25rem; /* For small screens and above */
+  }
+}
+
+@media (min-width: 768px) {
+  .typing-text-container p {
+    font-size: 1.5rem; /* For medium screens and above */
+  }
 }
 
 .button-container-home {
@@ -92,6 +120,7 @@
   background: #000000;
   transition: 0.1s;
   font-family: "Roboto Mono", monospace;
+  animation: breathing 4s infinite; /* Add breathing animation */
 }
 
 .button-container-home button::after {
@@ -114,11 +143,10 @@
 
 @keyframes textForward {
   0% {
-    transform: scale(1) translateY(10px) translateZ(0) ;
+    transform: scale(1) translateY(10px) translateZ(0);
   }
-  
   100% {
-    transform: scale(20)  translateY(120px) translateZ(2000px) ;
+    transform: scale(20) translateZ(2000px);
   }
 }
 
@@ -140,7 +168,8 @@
 .lets-go-text {
   animation: letsGoEffect 2s ease-in-out forwards;
 }
-.glass-card{
+
+.glass-card {
   width: 70%;
   height: 50vh;
 }

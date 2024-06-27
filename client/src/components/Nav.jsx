@@ -10,7 +10,7 @@ const Navbar = ({ darkTheme, toggleTheme }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className={`w-full p-4 fixed z-10 top-0 transition-colors duration-300 ${darkTheme ? 'bg-gray-900' : 'bg-gray-600'} bg-opacity-10 rounded-md bg-clip-padding backdrop-filter backdrop-blur-3xl border border-gray-500`}>
+    <nav className={`w-full p-4 fixed z-10 top-0 transition-colors duration-300 ${darkTheme ? 'bg-[#1E1E1E]' : 'bg-white'} bg-opacity-100 rounded-md bg-clip-padding backdrop-filter backdrop-blur-3xl border border-gray-500`}>
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         {/* Logo */}
         <div className="flex items-center">
@@ -23,10 +23,10 @@ const Navbar = ({ darkTheme, toggleTheme }) => {
 
         {/* Centered Links */}
         <div className="hidden md:flex md:space-x-10">
-          <Link to="/" className="text-black dark:text-white text-3xl block mt-4 md:inline-block md:mt-0">
+          <Link to="/" className={`${darkTheme? "text-white":"text-black"} dark:text-white text-3xl block mt-4 md:inline-block md:mt-0`}>
             Home
           </Link>
-          <Link to="/task" className="text-black dark:text-white text-3xl block mt-4 md:inline-block md:mt-0">
+          <Link to="/task" className={`${darkTheme? "text-white":"text-black"} dark:text-white text-3xl block mt-4 md:inline-block md:mt-0`}>
             Tasks
           </Link>
         </div>
@@ -34,7 +34,7 @@ const Navbar = ({ darkTheme, toggleTheme }) => {
         {/* Right-aligned About Link and Theme Toggle */}
         <div className="flex items-center space-x-4">
           <div className="hidden md:block">
-            <Link to="/about" className="text-black dark:text-white block mt-4 md:inline-block md:mt-0">
+            <Link to="/about" className={`${darkTheme? "text-white":"text-black"} dark:text-white block mt-4 md:inline-block md:mt-0`}>
               About
             </Link>
           </div>
