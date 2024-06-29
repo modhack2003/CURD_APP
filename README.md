@@ -1,8 +1,13 @@
-# Curd Manager
+# Crud Manager
 
 Curd Manager is a modern web application built using the MERN (MongoDB, Express.js, React.js, Node.js) stack. It is designed to efficiently manage CRUD (Create, Read, Update, Delete) operations for various entities, providing a seamless solution for streamlining your workflow.
 
-![Curd Manager Screenshot](./screenshots/screenshot.png)
+![Curd Manager Screenshot](./client/src/assets/Screenshot%202024-06-29%20164731.png)
+![Curd Manager Screenshot](./client/src/assets/Screenshot%202024-06-29%20164740.png)
+
+## if you using this  on localhost please chanage fetch URI (https://curd-g5va.onrender.com) to http://localhost:4000
+
+## visit the page https://mernfront-modhack2003s-projects.vercel.app/
 
 ## Features
 

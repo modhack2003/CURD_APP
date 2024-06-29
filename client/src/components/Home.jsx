@@ -4,27 +4,26 @@ import { TypeAnimation } from "react-type-animation";
 import Navbar from "./Nav";
 import PropTypes from "prop-types";
 
-const Home = ({ darkTheme, toggleTheme }) => {
+const Home = ({ darkTheme, toggleTheme, setAnimateNavbar }) => {
   const navigate = useNavigate();
   const [animateText, setAnimateText] = useState(false);
   const [fadeOut, setFadeOut] = useState(false);
   const [showButton, setShowButton] = useState(false);
-  const [animateNavbar, setAnimateNavbar] = useState(false);
 
   useEffect(() => {
+    setAnimateNavbar(true);
     const typingDuration = 3000;
     const timeout = setTimeout(() => {
       setShowButton(true);
-      setAnimateNavbar(true); // Trigger navbar animation
     }, typingDuration);
 
     return () => clearTimeout(timeout);
-  }, []);
+  }, [setAnimateNavbar]);
 
   const handleClick = () => {
     setAnimateText(true);
     setFadeOut(true);
-    setAnimateNavbar(false); // Reset navbar animation when navigating away
+    setAnimateNavbar(false);
     setTimeout(() => {
       navigate("/task");
     }, 1000);
@@ -32,7 +31,7 @@ const Home = ({ darkTheme, toggleTheme }) => {
 
   return (
     <>
-      <Navbar darkTheme={darkTheme} toggleTheme={toggleTheme} animateNavbar={animateNavbar} />
+      
       <div
         className={`home-container ${
           darkTheme ? "bg-[#1E1E1E] text-white" : "bg-white text-black"
@@ -89,6 +88,7 @@ const Home = ({ darkTheme, toggleTheme }) => {
 Home.propTypes = {
   darkTheme: PropTypes.bool.isRequired,
   toggleTheme: PropTypes.func.isRequired,
+  setAnimateNavbar: PropTypes.func.isRequired,
 };
 
 export default Home;

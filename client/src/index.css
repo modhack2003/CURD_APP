@@ -1,28 +1,19 @@
+/* Ensure Tailwind base styles are imported */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
 
+.rotate {
+  animation: rotation 2s infinite;
+}
 @keyframes rotation {
   from {
     transform: rotate(0deg);
   }
   to {
     transform: rotate(360deg);
-  }
-}
-
-.rotate {
-  animation: rotation 2s infinite;
-}
-
-@keyframes moveBackground {
-  0% {
-    transform: translateZ(-50px) rotateX(45deg) translateY(30%);
-  }
-  100% {
-    transform: translateZ(50px) rotateX(45deg) translateY(70%);
   }
 }
 
@@ -172,4 +163,38 @@
 .glass-card {
   width: 70%;
   height: 50vh;
+}
+
+@keyframes moveBackground {
+  0% {
+    transform: translateZ(-50px) rotateX(45deg) translateY(30%);
+  }
+  100% {
+    transform: translateZ(50px) rotateX(45deg) translateY(70%);
+  }
+}
+@keyframes slideUp {
+  0% {
+    transform: translateY(0%);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}
+
+@keyframes slideDown {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+
+.navbar-slide-up {
+  animation: slideUp 0.5s forwards;
+}
+
+.navbar-slide-down {
+  animation: slideDown 0.5s forwards;
 }
